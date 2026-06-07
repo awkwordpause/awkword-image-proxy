@@ -15,7 +15,7 @@ app.post('/ideogram', async (req, res) => {
     const response = await fetch('https://api.ideogram.ai/generate', {
       method: 'POST',
       headers: {
-        'Api-Key': req.headers['api-key'] || process.env.IDEOGRAM_API_KEY,
+        'Api-Key': process.env.IDEOGRAM_API_KEY,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
@@ -32,7 +32,7 @@ app.post('/openai', async (req, res) => {
     const response = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${req.headers['api-key'] || process.env.OPENAI_API_KEY}`,
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
@@ -49,7 +49,7 @@ app.post('/leonardo', async (req, res) => {
     const response = await fetch('https://cloud.leonardo.ai/api/rest/v1/generations', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${req.headers['api-key'] || process.env.LEONARDO_API_KEY}`,
+        'Authorization': `Bearer ${process.env.LEONARDO_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
@@ -66,7 +66,7 @@ app.post('/stability', async (req, res) => {
     const response = await fetch('https://api.stability.ai/v2beta/stable-image/generate/core', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${req.headers['api-key'] || process.env.STABILITY_API_KEY}`,
+        'Authorization': `Bearer ${process.env.STABILITY_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
@@ -83,7 +83,7 @@ app.post('/replicate', async (req, res) => {
     const response = await fetch('https://api.replicate.com/v1/predictions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${req.headers['api-key'] || process.env.REPLICATE_API_KEY}`,
+        'Authorization': `Bearer ${process.env.REPLICATE_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(req.body)
